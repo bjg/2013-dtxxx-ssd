@@ -1,4 +1,4 @@
-2013-dtxxx-ssd
-==============
+2012-msc-security
+=================
 
-Secure Systems Development Module Repository
+M.Sc. Secure Systems Development
