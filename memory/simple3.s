@@ -1,9 +1,9 @@
-	.file	"stack.c"
+	.file	"simple3.c"
 	.intel_syntax noprefix
 	.text
-	.globl	function_A
-	.type	function_A, @function
-function_A:
+	.globl	add
+	.type	add, @function
+add:
 .LFB0:
 	.cfi_startproc
 	push	rbp
@@ -11,19 +11,17 @@ function_A:
 	.cfi_offset 6, -16
 	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	mov	DWORD PTR [rbp-20], edi
-	mov	DWORD PTR [rbp-24], esi
-	mov	eax, DWORD PTR [rbp-24]
-	mov	edx, DWORD PTR [rbp-20]
+	mov	DWORD PTR [rbp-4], edi
+	mov	DWORD PTR [rbp-8], esi
+	mov	eax, DWORD PTR [rbp-8]
+	mov	edx, DWORD PTR [rbp-4]
 	add	eax, edx
-	mov	DWORD PTR [rbp-4], eax
-	mov	eax, DWORD PTR [rbp-4]
 	pop	rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	function_A, .-function_A
+	.size	add, .-add
 	.globl	main
 	.type	main, @function
 main:
@@ -37,11 +35,13 @@ main:
 	sub	rsp, 32
 	mov	DWORD PTR [rbp-20], edi
 	mov	QWORD PTR [rbp-32], rsi
-	mov	esi, 7
-	mov	edi, 1
-	call	function_A
-	mov	DWORD PTR [rbp-4], eax
-	mov	eax, DWORD PTR [rbp-4]
+	mov	DWORD PTR [rbp-8], 5
+	mov	DWORD PTR [rbp-4], 10
+	mov	edx, DWORD PTR [rbp-4]
+	mov	eax, DWORD PTR [rbp-8]
+	mov	esi, edx
+	mov	edi, eax
+	call	add
 	leave
 	.cfi_def_cfa 7, 8
 	ret
