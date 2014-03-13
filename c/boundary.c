@@ -2,7 +2,7 @@
 
 int main()
 {
-    char length = 0x7f;
-    printf("%x %d %u\n", (length + 1)0xff, (length + 1)0xff, (unsigned)(length + 1)0xff);
+    int length = 0xffffffff;
+    printf("%x %d %u\n", (length + 1), (length + 1), (length + 1));
     return 0;
 }
