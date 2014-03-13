@@ -2,7 +2,7 @@
 
 int main()
 {
-    signed int uid = 0xabcd0000;
-    printf("full=%d narrowed=%hd\n", uid, (unsigned short)uid);
+    unsigned int uid = 0xabcd0000;
+    printf("full=%u narrowed=%hd\n", uid, (short)uid);
     return 0;
 }

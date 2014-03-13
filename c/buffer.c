@@ -4,8 +4,8 @@
 
 int main()
 {
-    long xxxx = 0;
     char buf[BUFLEN];
+    char overrun[BUFLEN];
     char *src = "Hello, world";
     int i;
 
@@ -13,14 +13,14 @@ int main()
         buf[i] = 0xee;
     }
 
-    sprintf(buf, "%s", src);
-    //snprintf(buf, sizeof(buf), "%s", src);
+    //sprintf(buf, "%s", src);
+    snprintf(buf, sizeof(buf), "%s", src);
 
     for (i = 0; i < sizeof(buf) + 10; i++) {
         printf("0x%02x ", buf[i]);
     }
     printf("\n");
 
-    printf("%s %ld\n", buf, xxxx);
+    printf("%s\n", buf);
     return 0;
 }
