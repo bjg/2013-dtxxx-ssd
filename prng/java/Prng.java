@@ -2,15 +2,15 @@ public class Prng
 {
     private static final int P = 295075153; 
     private static final int[] captured = {
-	210205973,
-	22795300,
-	58776750,
-	121262470,
-	264731963,
-	140842553,
-	242590528,
-	195244728,
-	86752752
+        210205973,
+        22795300,
+        58776750,
+        121262470,
+        264731963,
+        140842553,
+        242590528,
+        195244728,
+        86752752
     };
 
     private int x, y;
@@ -23,19 +23,19 @@ public class Prng
     }
 
     private boolean verify() {
-	Prng q = new Prng(x, y);
+        Prng q = new Prng(x, y);
         for (int k = 2; k < captured.length; k++) {
             if (q.nextPrng() != captured[k]) {
                 return false;
             }
         }
         System.out.printf("%d\n", q.nextPrng());
-	return true;
+        return true;
     }
 
     public Prng(int x, int y) {
-	this.x = x;
-	this.y = y;
+        this.x = x;
+        this.y = y;
     }
 
     public static void findNext() {
@@ -50,6 +50,7 @@ public class Prng
     public static void main(String[] argv) {
         long t = System.currentTimeMillis();
         Prng.findNext();
-        System.out.printf("%f seconds\n", (double)(System.currentTimeMillis() - t) / 1000.0);
+        System.out.printf("%f seconds\n",
+                          (double)(System.currentTimeMillis() - t) / 1000.0);
     }
 }
